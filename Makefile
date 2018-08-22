@@ -1,9 +1,23 @@
 FLAGS = -Wall
+LINKER_FLAGS = 
 
-CPP_FILES = main.cpp abstraction.cpp display.cpp logic.cpp
+OBJS = abstraction.o display.o logic.o
+MAIN_FILE = main.cpp
 
-linux:
-	g++ -DLINUX $(FLAGS) $(CPP_FILES) -lGL -lGLU -lglut
+linux: FLAGS += -DLINUX
+linux: LINKER_FLAGS += -lGL -lGLU -lglut
+linux: build
 
-windows:
-	g++ -DWINDOWS $(FLAGS) $(CPP_FILES)  glut32.lib -lopengl32 -lglu32
+windows: FLAGS += -DWINDOWS
+windows: LINKER_FLAGS += glut32.lib -lopengl32 -lglu32
+windows: build
+
+build: $(OBJS) $(MAIN_FILE)
+	g++ $(FLAGS) $(MAIN_FILE) $(OBJS) $(LINKER_FLAGS)
+
+clean:
+	@rm *.o
+	@rm a.out
+
+%.o: %.cpp project.h
+	g++ $(FLAGS) -c $< -o $@ $(LINKER_FLAGS)

@@ -8,8 +8,12 @@ using namespace std;
 
 #include <GL/glut.h>
 
+extern const string title;
+extern const int width;
+extern const int height;
 
 // ABSTRACTION.CPP
+void init_window(string title, int argc, char ** argv);
 void setColor(float r, float g, float b);
 void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);

@@ -30,3 +30,21 @@ void drawLine(int x1, int y1, int x2, int y2)
 	glVertex2i(x2,y2);
 	glEnd();
 }
+
+//intializing stuff
+void draw_helper();
+
+void init_window(string title, int argc, char ** argv)
+{
+	glutInit(&argc,argv);
+	// TODO: Take window size from commandline args else set to fullscreen if possible
+	glutInitWindowSize(width,height);
+	glutCreateWindow(title.c_str());
+	gluOrtho2D(-width/2,width/2,-height/2,height/2); //defined limits in which to draw
+	glutDisplayFunc(draw_helper);
+	glutMainLoop();
+}
+
+void draw_helper(){
+	draw(); glFlush();
+}
