@@ -1,6 +1,7 @@
 #include "project.h"
 
-void draw(){
+void draw()
+{
 	setBackgroundColor(0.9, 0.9, 0.9);
 	setColor(0,0,0);
 	drawPixel(0,0);

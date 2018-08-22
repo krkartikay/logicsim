@@ -1,14 +1,16 @@
 #include "project.h"
 
 void draw_i();
-void init(string);
+void init_window(string title);
 
 const string title = "OneBigSux";
+const int width = 800;
+const int height = 600;
 
 int main(int argc, char **argv)
 {
 	glutInit(&argc,argv); 
-	init(title);
+	init_window(title);
 	glutDisplayFunc(draw_i);
 	glutMainLoop();
 }
@@ -21,9 +23,10 @@ void draw_i()
 }
 
 //intializing stuff
-void init(string title)
+void init_window(string title)
 {
-	glutInitWindowSize(800,600);
+	// TODO: Take window size from commandline args else set to fullscreen if possible
+	glutInitWindowSize(width,height);
 	glutCreateWindow(title.c_str());
-	gluOrtho2D(-399,400,-299,300); //defined limits in which to draw
+	gluOrtho2D(-width/2,width/2,-height/2,height/2); //defined limits in which to draw
 }
