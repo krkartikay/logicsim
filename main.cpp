@@ -1,13 +1,19 @@
 #include "project.h"
 
-//draw a pixel at x,y
-void drawPixel(GLint x, GLint y)
+void draw_i();
+void init(string);
+
+const string title = "OneBigSux";
+
+int main(int argc, char **argv)
 {
-	glBegin(GL_POINTS);
-	glVertex2i(x,y);
-	glEnd();
+	glutInit(&argc,argv); 
+	init(title);
+	glutDisplayFunc(draw_i);
+	glutMainLoop();
 }
 
+// draw and call glFlush
 void draw_i()
 {
 	draw();
@@ -15,20 +21,9 @@ void draw_i()
 }
 
 //intializing stuff
-void init()
+void init(string title)
 {
 	glutInitWindowSize(800,600);
-	glutCreateWindow("OneBigSux");
-	glClearColor(0.9,0.9,0.9,0); //setting background to black
-	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(0.8,0.0,0.0); //drawings will have red shade
+	glutCreateWindow(title.c_str());
 	gluOrtho2D(-399,400,-299,300); //defined limits in which to draw
-}
-
-int main(int argc, char **argv)
-{
-	glutInit(&argc,argv); 
-	init();
-	glutDisplayFunc(draw_i);
-	glutMainLoop();
 }

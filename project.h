@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+using namespace std;
 
 #ifdef WINDOWS
 #include <windows.h>
@@ -7,8 +9,11 @@
 #include <GL/glut.h>
 
 
-// MAIN.CPP
-void drawPixel(GLint x, GLint y);
+// ABSTRACTION.CPP
+void setColor(float r, float g, float b);
+void setBackgroundColor(float r, float g, float b);
+void drawPixel(int x, int y);
+void drawLine(int x1, int y1, int x2, int y2);
 
 // DISPLAY.CPP
 void draw();
