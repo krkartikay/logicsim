@@ -41,6 +41,9 @@ void init_window(string title, int argc, char ** argv)
 	glutInitWindowSize(width,height);
 	glutCreateWindow(title.c_str());
 	gluOrtho2D(-width/2,width/2,-height/2,height/2); //defined limits in which to draw
+}
+
+void run(){
 	glutDisplayFunc(draw_helper);
 	glutMainLoop();
 }
