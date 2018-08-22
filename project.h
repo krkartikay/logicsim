@@ -14,6 +14,7 @@ extern const int height;
 
 // ABSTRACTION.CPP
 void init_window(string title, int argc, char ** argv);
+void run();
 void setColor(float r, float g, float b);
 void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);
