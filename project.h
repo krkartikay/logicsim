@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -14,6 +15,7 @@ extern const int height;
 
 // ABSTRACTION.CPP
 void init_window(string title, int argc, char ** argv);
+void run();
 void setColor(float r, float g, float b);
 void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);
@@ -25,3 +27,20 @@ void draw();
 // LOGIC.CPP
 
 // DISPLAY.CPP
+class GridObject{
+	public: 
+	void draw(int x,int y);
+};
+class MainGrid{
+	vector<GridObject> gridObjects;
+	public:
+	int width,height;
+	MainGrid(int w,int h);
+	void draw();
+};
+class MainInterface{
+	MainGrid grid;
+	public:
+	MainInterface(int w, int h);
+	void draw();
+};

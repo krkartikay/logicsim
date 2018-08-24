@@ -40,7 +40,10 @@ void init_window(string title, int argc, char ** argv)
 	// TODO: Take window size from commandline args else set to fullscreen if possible
 	glutInitWindowSize(width,height);
 	glutCreateWindow(title.c_str());
-	gluOrtho2D(-width/2,width/2,-height/2,height/2); //defined limits in which to draw
+	gluOrtho2D(0,width,0,height); //defined limits in which to draw
+}
+
+void run(){
 	glutDisplayFunc(draw_helper);
 	glutMainLoop();
 }
