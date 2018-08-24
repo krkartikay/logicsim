@@ -20,4 +20,4 @@ clean:
 	@rm a.out
 
 %.o: %.cpp project.h
-	g++ $(FLAGS) -c $< -o $@ $(LINKER_FLAGS)
+	g++ $(FLAGS) -c $< -o $@
