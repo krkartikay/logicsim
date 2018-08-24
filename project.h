@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -26,3 +27,20 @@ void draw();
 // LOGIC.CPP
 
 // DISPLAY.CPP
+class GridObject{
+	public: 
+	void draw(int x,int y);
+};
+class MainGrid{
+	vector<GridObject> gridObjects;
+	public:
+	int width,height;
+	MainGrid(int w,int h);
+	void draw();
+};
+class MainInterface{
+	MainGrid grid;
+	public:
+	MainInterface(int w, int h);
+	void draw();
+};
