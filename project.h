@@ -19,7 +19,9 @@ void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);
 void drawLine(int x1, int y1, int x2, int y2);
 
-// DISPLAY.CPP
+// MAIN.CPP
 void draw();
 
 // LOGIC.CPP
+
+// DISPLAY.CPP
