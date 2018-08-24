@@ -16,6 +16,4 @@ int main(int argc, char **argv)
 void draw()
 {
 	UI->draw();
-	drawPixel(0,0);
-	drawLine(10,0,0,10);
 }
