@@ -28,19 +28,30 @@ void draw();
 
 // DISPLAY.CPP
 class GridObject{
-	public: 
-	void draw(int x,int y);
+	int x, y; // position (coordinates)
+	public:
+		GridObject(int x, int y):x(x),y(y){}
+		virtual void draw() = 0; // pure virtual function.
+		// implement in all derived classes.
 };
+
 class MainGrid{
 	vector<GridObject> gridObjects;
+	const int x_res, y_res;
 	public:
 	int width,height;
 	MainGrid(int w,int h);
 	void draw();
 };
+
 class MainInterface{
 	MainGrid grid;
 	public:
 	MainInterface(int w, int h);
 	void draw();
+};
+
+class SquareSymbol: GridObject{
+	public:
+		void draw();
 };
