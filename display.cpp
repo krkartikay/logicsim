@@ -1,9 +1,9 @@
 #include "project.h"
 
 // USELESS SQUARE SYMBOL
-
 void SquareSymbol::draw(){
 	// TODO
+	
 }
 
 // MAIN UI
@@ -35,4 +35,8 @@ void MainGrid::draw(){
 	{
 		drawLine(0,i,width,i);
 	}
+	// for(auto gObj : gridObjects)
+	// {
+	// 	gObj.draw();
+	// }
 }

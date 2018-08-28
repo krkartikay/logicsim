@@ -28,7 +28,7 @@ void draw();
 
 // DISPLAY.CPP
 class GridObject{
-	int x, y; // position (coordinates)
+	const int x, y; // position (coordinates)
 	public:
 		GridObject(int x, int y):x(x),y(y){}
 		virtual void draw() = 0; // pure virtual function.
@@ -53,5 +53,6 @@ class MainInterface{
 
 class SquareSymbol: GridObject{
 	public:
+		SquareSymbol(int x, int y): GridObject(x, y){}
 		void draw();
 };
