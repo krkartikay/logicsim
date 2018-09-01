@@ -23,6 +23,7 @@ void drawLine(int x1, int y1, int x2, int y2);
 
 // MAIN.CPP
 void draw();
+void clickDown(int x, int y);
 
 // LOGIC.CPP
 
@@ -37,16 +38,16 @@ class GridObject{
 
 class MainGrid{
 	vector<GridObject> gridObjects;
-	const int x_res, y_res;
 	public:
-	int width,height;
-	MainGrid(int w,int h);
-	void draw();
+		const int x_res, y_res;
+		int width,height;
+		MainGrid(int w,int h);
+		void draw();
 };
 
 class MainInterface{
-	MainGrid grid;
 	public:
+	MainGrid grid;
 	MainInterface(int w, int h);
 	void draw();
 };

@@ -1,5 +1,7 @@
 #include "project.h"
 
+static int h, w;
+
 // set drawing color
 void setColor(float r, float g, float b)
 {
@@ -31,6 +33,16 @@ void drawLine(int x1, int y1, int x2, int y2)
 	glEnd();
 }
 
+void clickHandler_internal(int btn,int state,int x,int y){
+	int x_int, y_int;
+	x_int = x;
+	y_int = h - y;
+	if(state==GLUT_DOWN and btn==GLUT_LEFT)
+	{
+		clickDown(x_int, y_int);
+	}
+}
+
 //intializing stuff
 void draw_helper();
 
@@ -38,12 +50,14 @@ void init_window(string title, int argc, char ** argv)
 {
 	glutInit(&argc,argv);
 	// TODO: Take window size from commandline args else set to fullscreen if possible
+	w = width; h = height;
 	glutInitWindowSize(width,height);
 	glutCreateWindow(title.c_str());
 	gluOrtho2D(0,width,0,height); //defined limits in which to draw
 }
 
 void run(){
+	glutMouseFunc(clickHandler_internal);
 	glutDisplayFunc(draw_helper);
 	glutMainLoop();
 }
