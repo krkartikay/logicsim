@@ -3,6 +3,8 @@
 const string title = "OneBigSux";
 const int width = 800;
 const int height = 600;
+const int xN = 25;
+const int yN = 20;
 
 MainInterface* UI;
 
