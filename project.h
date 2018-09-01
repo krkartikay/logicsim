@@ -21,27 +21,25 @@ void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);
 void drawLine(int x1, int y1, int x2, int y2);
 
-// MAIN.CPP
-void draw();
-void clickDown(int x, int y);
-
 // LOGIC.CPP
 
 // DISPLAY.CPP
 class GridObject{
 	const int x, y; // position (coordinates)
+	const int grid_x, grid_y;
 	public:
-		GridObject(int x, int y):x(x),y(y){}
+		GridObject(int x, int y);
 		virtual void draw() = 0; // pure virtual function.
 		// implement in all derived classes.
 };
 
 class MainGrid{
-	vector<GridObject> gridObjects;
+	vector<GridObject*> gridObjects;
 	public:
 		const int x_res, y_res;
 		int width,height;
 		MainGrid(int w,int h);
+		void addObject(GridObject* g);
 		void draw();
 };
 
@@ -52,8 +50,13 @@ class MainInterface{
 	void draw();
 };
 
-class SquareSymbol: GridObject{
+class SquareSymbol: public GridObject{
 	public:
 		SquareSymbol(int x, int y): GridObject(x, y){}
 		void draw();
 };
+
+// MAIN.CPP
+extern MainInterface* UI;
+void draw();
+void clickDown(int x, int y);

@@ -3,7 +3,7 @@
 // USELESS SQUARE SYMBOL
 void SquareSymbol::draw(){
 	// TODO
-	
+	cout << "Drawing sqsym\n";
 }
 
 // MAIN UI
@@ -35,8 +35,21 @@ void MainGrid::draw(){
 	{
 		drawLine(0,i,width,i);
 	}
-	// for(auto gObj : gridObjects)
-	// {
-	// 	gObj.draw();
-	// }
+	for(auto gObj : gridObjects)
+	{
+		gObj->draw();
+	}
+}
+
+void MainGrid::addObject(GridObject* g){
+	gridObjects.push_back(g);
+	this->draw();
+}
+
+GridObject::GridObject(int x, int y)
+	:	x(x),
+		y(y),
+		grid_x(x*(UI->grid.x_res)/width),
+		grid_y(y*(UI->grid.y_res)/height)
+{
 }
