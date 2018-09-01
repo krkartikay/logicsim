@@ -3,7 +3,15 @@
 // USELESS SQUARE SYMBOL
 void SquareSymbol::draw(){
 	// TODO
-	cout << "Drawing sqsym\n";
+	int fX=width/xN;
+	int fY=height/yN;
+	setColor(0,0,0);
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX+fX,grid_y*fY);
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX,grid_y*fY+fY);
+	drawLine(grid_x*fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY+fY);
+	drawLine(grid_x*fX+fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY);
+	setColor(1,1,1);
+	cout<<"Square Symbol Drawn in "<<grid_x<<","<<grid_y<<"\n";
 }
 
 // MAIN UI
@@ -19,8 +27,8 @@ void MainInterface::draw(){
 // MAIN GRID
 
 MainGrid::MainGrid(int w,int h)
-	:	x_res(10),
-		y_res(10)
+	:	x_res(xN),
+		y_res(yN)
 {
 	width = w;
 	height = h;

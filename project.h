@@ -12,6 +12,8 @@ using namespace std;
 extern const string title;
 extern const int width;
 extern const int height;
+extern const int xN;
+extern const int yN;
 
 // ABSTRACTION.CPP
 void init_window(string title, int argc, char ** argv);
@@ -25,6 +27,7 @@ void drawLine(int x1, int y1, int x2, int y2);
 
 // DISPLAY.CPP
 class GridObject{
+	protected:
 	const int x, y; // position (coordinates)
 	const int grid_x, grid_y;
 	public:
