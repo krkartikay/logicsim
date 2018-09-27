@@ -6,11 +6,30 @@ void SquareSymbol::draw(){
 	int fX=width/xN;
 	int fY=height/yN;
 	setColor(0,0,0);
-	drawLine(grid_x*fX,grid_y*fY,grid_x*fX+fX,grid_y*fY);
-	drawLine(grid_x*fX,grid_y*fY,grid_x*fX,grid_y*fY+fY);
-	drawLine(grid_x*fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY+fY);
-	drawLine(grid_x*fX+fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY);
-	setColor(1,1,1);
+
+	// make square
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX+fX,grid_y*fY); // bottom line
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX,grid_y*fY+fY); // left line
+	drawLine(grid_x*fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY+fY); // top line
+	drawLine(grid_x*fX+fX,grid_y*fY+fY,grid_x*fX+fX,grid_y*fY); // right line
+
+		setColor(1, 1, 1);
+	cout<<"Square Symbol Drawn in "<<grid_x<<","<<grid_y<<"\n";
+}
+
+void NotSymbol::draw(){
+	// TODO
+	int fX=width/xN;
+	int fY=height/yN;
+	setColor(0,0,0);
+
+	// NOT design
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX+fX - 4,grid_y*fY + (fY/2)); // bottom-mid line
+	drawLine(grid_x*fX,grid_y*fY,grid_x*fX,grid_y*fY+fY); // left line
+	drawLine(grid_x*fX,grid_y*fY+fY,grid_x*fX+fX - 4,grid_y*fY+ (fY/2)); // top-mid line
+	drawCircle(grid_x * fX + fX - 2, grid_y * fY + (fY / 2), 2); // circle
+
+		setColor(1, 1, 1);
 	cout<<"Square Symbol Drawn in "<<grid_x<<","<<grid_y<<"\n";
 }
 

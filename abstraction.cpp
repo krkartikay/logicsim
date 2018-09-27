@@ -31,6 +31,25 @@ void drawLine(int x1, int y1, int x2, int y2)
 	glEnd();
 }
 
+// draw a circle with radius r
+void drawCircle(GLfloat x, GLfloat y, GLfloat radius)
+{
+	int i;
+	int lineAmount = 100; //# of triangles used to draw circle
+
+	//GLfloat radius = 0.8f; //radius
+	GLfloat twicePi = 2.0f * PI;
+
+	glBegin(GL_LINE_LOOP);
+	for (i = 0; i <= lineAmount; i++)
+	{
+		glVertex2f(
+			x + (radius * cos(i * twicePi / lineAmount)),
+			y + (radius * sin(i * twicePi / lineAmount)));
+	}
+	glEnd();
+}
+
 void clickHandler_internal(int btn,int state,int x,int y){
 	int x_int, y_int;
 	x_int = x;

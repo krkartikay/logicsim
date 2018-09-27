@@ -17,8 +17,10 @@ int main(int argc, char **argv)
 
 void clickDown(int x, int y)
 {
-	SquareSymbol* s = new SquareSymbol(x, y);	
-	UI->grid.addObject(s);
+	// SquareSymbol* s = new SquareSymbol(x, y);
+	// UI->grid.addObject(s);
+	NotSymbol* n = new NotSymbol(x, y);
+	UI->grid.addObject(n);
 }
 
 void draw()

@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <math.h>
 using namespace std;
+
+#define PI 3.1415926535897932384626433832795
 
 #ifdef WINDOWS
 #include <windows.h>
@@ -22,12 +25,14 @@ void setColor(float r, float g, float b);
 void setBackgroundColor(float r, float g, float b);
 void drawPixel(int x, int y);
 void drawLine(int x1, int y1, int x2, int y2);
+void drawCircle(GLfloat x, GLfloat y, GLfloat radius);
 
-// LOGIC.CPP
+	// LOGIC.CPP
 
-// DISPLAY.CPP
-class GridObject{
-	protected:
+	// DISPLAY.CPP
+	class GridObject
+{
+  protected:
 	const int x, y; // position (coordinates)
 	const int grid_x, grid_y;
 	public:
@@ -56,6 +61,12 @@ class MainInterface{
 class SquareSymbol: public GridObject{
 	public:
 		SquareSymbol(int x, int y): GridObject(x, y){}
+		void draw();
+};
+
+class NotSymbol: public GridObject{
+	public:
+		NotSymbol(int x, int y): GridObject(x, y){}
 		void draw();
 };
 
