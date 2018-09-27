@@ -50,6 +50,11 @@ void MainGrid::draw(){
 }
 
 void MainGrid::addObject(GridObject* g){
+
+	for(auto gObj : gridObjects)
+	{
+		// TODO check for overlaps
+	}
 	gridObjects.push_back(g);
 	this->draw();
 }
