@@ -13,11 +13,11 @@ windows: LINKER_FLAGS += glut32.lib -lopengl32 -lglu32
 windows: build
 
 build: $(OBJS) $(MAIN_FILE)
-	g++ $(FLAGS) $(MAIN_FILE) $(OBJS) $(LINKER_FLAGS)
+	g++-7 $(FLAGS) $(MAIN_FILE) $(OBJS) $(LINKER_FLAGS)
 
 clean:
 	@rm *.o
 	@rm a.out
 
 %.o: %.cpp project.h
-	g++ $(FLAGS) -c $< -o $@
+	g++-7 $(FLAGS) -c $< -o $@
